@@ -29,8 +29,7 @@ Non-semantic tag name. This div holds one of the boxes for the applications that
 [Describe what you changed and paste a screenshot reference here]
 
 I changed the text for faculty dashboard.
-![Image showing Faculty Dashboard changed to "Staff Touch Glowing Rectangle"](image.png)
-
+![Image showing Faculty Dashboard changed to "Staff Touch Glowing Rectangle"](screenshots/image.png)
 ### Page structure
 - `<main>` present?  - Yes
 - `<h1>` present?  - Yes
@@ -45,7 +44,7 @@ I changed the text for faculty dashboard.
 | `document.querySelectorAll('a').length` | 219 | There are 219 'a' elements in the DOM |
 | `document.querySelectorAll('img[alt=""]').length` | 35 | There are 35 elements in the document that don't have alternative text for an image.  |
 
-![Image showing the output of the 3 console commands](image-1.png)
+![Image showing the output of the 3 console commands](screenshots/image-1.png)
 
 ### Network: first request
 
@@ -88,7 +87,7 @@ Non-semantic tag name. This one contains the first part of the instructions to d
 | `document.querySelectorAll('a').length` | 33 | There are 33 'a' elements in the document |
 | `document.querySelectorAll('img[alt=""]').length` | 0 | There are 0 elements in the document that don't have alternative text for an image.  |
 
-![An image showing the results of the 3 console commands](image-2.png)
+![An image showing the results of the 3 console commands](screenshots/image-2.png)
 
 ### Network: first request
 
