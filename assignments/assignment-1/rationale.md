@@ -4,4 +4,4 @@ I didn't have much content that would meaningfully change between mobile and des
 
 As said earlier, the images are laid out in a CSS grid of four for better viewing (and because either a grid or flexbox was required). It seems to function at every size, but there's probably a better thing to use than what I did. 
 
-All text has a contrast level of at least 6 with its background, and every interactable element is navigable with the tab key. All tags should be semantic, so the user should be able to understand the page layout with a screen reader. 
+All text has a contrast level of at least 6 with its background, and every interactable element is navigable with the tab key. All tags should be semantic, so the user should be able to understand the page layout with a screen reader. The header for the beanie images was put above the section tag because if it was put inside it would mess with the grid structure. 
