@@ -1,0 +1,19 @@
+:root {
+  --color-primary: #1a56db;
+  --color-text: #111827;
+  --color-bg: #ffffff;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  padding: var(--space-md);
+}
+
+a {
+  color: var(--color-primary);
+}
