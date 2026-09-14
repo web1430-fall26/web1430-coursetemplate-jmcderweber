@@ -1,7 +1,23 @@
+/* head
+title
+nav
+ul
+li
+body
+main
+section
+h1
+h2
+h3
+figure
+figcaption
+form
+footer*/
+
 :root {
-  --color-primary: #1a56db;
+  --color-primary: #494bc57c;
   --color-text: #111827;
-  --color-bg: #ffffff;
+  --color-bg: #e7d8d8;
   --space-md: 1rem;
   --space-lg: 2rem;
   --font-body: 'Inter', sans-serif;
@@ -15,5 +31,23 @@ body {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-text);
+}
+
+header {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--space-md);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.beanie-photos {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: fit-content(100%) fit-content(100%);
+  min-width: 180px; /* This doesn't actually seem to do anything when mixed with fit-content */
 }

@@ -1,0 +1,7 @@
+In the HTML, I used section tags rather than article tags because the contents of them aren't going to be redistributed on the web, and must be interpreted within the context of the page.
+
+I didn't have much content that would meaningfully change between mobile and desktop, and the images that would are using grid-template-columns with fit-content(), so those shrink with the device screen. It could maybe have been done better with min-width, since the images shrink rather small, but I couldn't seem to figure out how to get that to work. min-width currently in the css for the grid, but does nothing. 
+
+As said earlier, the images are laid out in a CSS grid of four for better viewing (and because either a grid or flexbox was required). It seems to function at every size, but there's probably a better thing to use than what I did. 
+
+All text has a contrast level of at least 6 with its background, and every interactable element is navigable with the tab key. All tags should be semantic, so the user should be able to understand the page layout with a screen reader. 

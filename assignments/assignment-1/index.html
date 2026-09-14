@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeHat Beanie Club</title>
+</head>
 
+<header>
     <nav>
         <ul>
             <li><a href="#About">About Us</a></li>
@@ -12,9 +14,7 @@
             <li><a href="#Members">Members</a></li>
         </ul>
     </nav>
-</head>
-
-
+</header>
 
 <body>
     <link rel="stylesheet" href="style.css">
@@ -43,12 +43,43 @@
             </ul>
         </section>
 
-        <section>   
-            <h2>Beanie Photo</h2>
+
+        <h2>Beanie Photos</h2>
+        <section class="beanie-photos">   
+            
+            <figure>
+                <img src="images/beanie2.jpg" alt="An orange beanie">
+                <figcaption>An excellent beanie to start with... if Dave hadn't eaten it. </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/beanie3.webp" alt="A yellow and green striped beanie">
+                <figcaption>A yellow and green striped beanie that Dave already got to</figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/beanie4.jpg" alt="A calming green beanie">
+                <figcaption>A calming green beanie that Dave said tasted like mint</figcaption>
+            </figure>
+
+
             <figure>
                 <img src="images/20260913_225113.jpg" alt="A red beanie with GENIUS text and a blue pompom on top">
-                <figcaption>This is the only beanie Dave didn't eat</figcaption>
+                <figcaption>So far, this is the only beanie Dave *hasn't* eaten yet, so get it while you can!</figcaption>
             </figure>
+
+            
+        </section>
+
+        <section>
+            <h3>Sign up to maybe get a beanie Dave hasn't eaten yet!</h3>
+            <form>
+                <label for="name">Name:</label> <br>
+                <input type="text" id="name" name="name" required> <br>
+                <label for="email">Email:</label> <br>
+                <input type="email" id="email" name="email" required> <br>
+                <button type="submit">Submit</button>
+            </form>
         </section>
 
     </main>
