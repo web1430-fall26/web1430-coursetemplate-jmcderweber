@@ -1,0 +1,7 @@
+ grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
+"The grid itself is fine, but the min-width: 180px on .beanie-photos doesn't do anything combined with fit-content()
+ tracks -- you noticed this yourself in the rationale. 
+ Try grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) instead, which would also give you responsiveness for free."
+
+^ unimplemented, but would make the content into a line of images that reaches the end of the screen and spills over if needed.
+works well with mobile, but looks awkward when a single image spills over
