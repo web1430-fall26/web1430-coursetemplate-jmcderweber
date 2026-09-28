@@ -47,9 +47,16 @@ img {
 
 .beanie-photos {
   display: grid;
-  grid-template-columns: fit-content(100%) fit-content(100%);
+  grid-template-columns: fit-content(100%);
 }
 
 .beanie-photos-section-title {
   grid-column: 1 / -1;
+}
+
+@media (min-width: 600px) {
+  .beanie-photos { 
+    grid-template-columns: fit-content(100%)  fit-content(100%);
+
+  }
 }
