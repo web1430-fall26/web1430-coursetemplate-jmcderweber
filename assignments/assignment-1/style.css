@@ -54,7 +54,7 @@ img {
   grid-column: 1 / -1;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 48rem) {
   .beanie-photos { 
     grid-template-columns: fit-content(100%)  fit-content(100%);
 
