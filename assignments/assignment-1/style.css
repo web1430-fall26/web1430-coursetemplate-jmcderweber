@@ -47,9 +47,7 @@ img {
 
 .beanie-photos {
   display: grid;
-  gap: var(--space-md);
   grid-template-columns: fit-content(100%) fit-content(100%);
-  min-width: 180px; /* This doesn't actually seem to do anything when mixed with fit-content */
 }
 
 .beanie-photos-section-title {
