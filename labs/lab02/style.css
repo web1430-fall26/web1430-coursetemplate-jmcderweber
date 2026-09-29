@@ -12,10 +12,11 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
-  --color-brand:      /* TODO: your brand color */;
-  --color-text:       /* TODO: dark text color */;
-  --color-bg:         /* TODO: page background */;
-  --color-surface:    /* TODO: card/section background */;
+  --color-brand: #c07c42;     /* TODO: your brand color */
+  --color-text: #1e412a;      /* TODO: dark text color */
+  --color-bg: #8fae59 ;       /* TODO: page background */
+  --color-surface: #6a3f22;   /* TODO: card/section background */
+  --card-bg: #f2d86a; 
 
   --space-sm:  0.5rem;
   --space-md:  1rem;
@@ -40,9 +41,25 @@ body {
   line-height: 1.6;
 }
 
+.brand {
+  font-weight: bold;
+  /* text-decoration: none; */
+  color: var(--color-text);
+}
+
 img {
   max-width: 100%;
   display: block;
+}
+@media (min-width: 48rem) {
+  img { 
+    max-width: 75%;
+  }
+}
+@media (min-width: 64rem) {
+  img { 
+    max-width: 50%;
+  }
 }
 
 /* ─── Skip link ──────────────────────────────────────────────────────────── */
@@ -97,7 +114,7 @@ nav {
 }
 
 .member-card {
-  /* TODO */
+  background-color: (var(--card-bg));
 }
 
 /* ─── Contact form ───────────────────────────────────────────────────────── */
