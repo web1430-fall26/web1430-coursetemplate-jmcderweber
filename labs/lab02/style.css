@@ -2,21 +2,22 @@
    Mobile-first CSS starter
    TODO: Fill in the values for custom properties, then write the styles below.
 */
+/* Style the header, navigation, hero section, cards, form, and footer */
 
 /* ─── Reset ─────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; 
   margin: 0;
-  padding: 0;
+  padding: 5px;
 }
 
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
-  --color-brand: #c07c42;     /* TODO: your brand color */
-  --color-text: #1e412a;      /* TODO: dark text color */
-  --color-bg: #8fae59 ;       /* TODO: page background */
+  --color-brand: #c07c42;     /* barely used */
+  --color-text: #1e412a;      /* used */
+  --color-bg: #8fae59 ;       /* used */
   --color-surface: #6a3f22;   /* TODO: card/section background */
-  --card-bg: #f2d86a; 
+  --card-bg: #dabe46; 
 
   --space-sm:  0.5rem;
   --space-md:  1rem;
@@ -110,12 +111,18 @@ nav {
 /* ─── Member grid — single column on mobile ──────────────────────────────── */
 .member-grid {
   list-style: none;
-  /* TODO: single column layout */
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.member-card {
-  background-color: (var(--card-bg));
+.member-card { 
+    background-color: var(--card-bg); 
+    padding: 20px;
+    border-radius: 48px;
+    border: 1px solid #000000;
+    
 }
+
 
 /* ─── Contact form ───────────────────────────────────────────────────────── */
 .field-group {
@@ -143,14 +150,15 @@ footer {
 /* ─── Responsive: tablet (600px+) ───────────────────────────────────────── */
 @media (min-width: 600px) {
   .member-grid {
-    /* TODO: two-column grid */
+  grid-template-columns: 1fr 1fr;
   }
 }
 
 /* ─── Responsive: desktop (900px+) ──────────────────────────────────────── */
 @media (min-width: 900px) {
   .member-grid {
-    /* TODO: three-column grid */
+      display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   }
 
   nav {
