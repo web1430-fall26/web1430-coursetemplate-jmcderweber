@@ -1,7 +1,7 @@
 <!-- a place to write notes -->
 
 
-<!-- Experiments
+<!-- Console Experiments
  Type coercion:
 
 '5' + 3 - Produced '53'. This is because we started with a string, which made the default operation for + to be concatenation, which then coerced the 3 to become type string. 
@@ -34,9 +34,31 @@ Note: typeof null returns 'object' — this is a well-known JavaScript quirk, no
 
 Strings:
 
-'  hello world  '.trim()
-'hello world'.includes('world')
-'hello world'.toUpperCase()
-'hello world'.replace('world', 'JavaScript')
-'hello'.length
+'  hello world  '.trim() - returned 'hello world'   Reason: .trim() removed leading and trailing whitespace
+
+'hello world'.includes('world') - returned true     Reason: .includes() returns a boolean based on if the string given includes the substring or not
+
+'hello world'.toUpperCase() - returned 'HELLO WORLD'    Reason: .toUpperCase() takes the string and returns the same string with all letters in uppercase
+
+'hello world'.replace('world', 'JavaScript') - returned 'hello JavaScript'  Reason: .replace() takes the string given and replaces the *first* instance of the first parameter with the second parameter, regardless of whitespace. You can call .replace again to replace the second instance of the word.
+
+'hello'.length - returned 5     Reason: hello is 5 characters long
+
 Record all results in lab -->
+
+
+Javascript debug exercises
+
+Line 12
+Uncaught ReferenceError: nextYeer is not defined
+The error was listed at 12.80, so I went to the 12th line, 80th column, which landed on nextYeer inside of the return message. 
+I changed nextYeer to nextYear, which was already declared, which fixed the problem. 
+
+Line 16
+Uncaught ReferenceError: mesage is not defined
+The error in console said 16.13, which I took to mean 16th line, 13th column. This landed on the word mesage inside a function. 
+I changed mesage to message, because that was previously declared, which fixed it. 
+
+Line 18 
+No error was shown in the console, but strict equality was not used despite the JavaScript saying it was. This was fixed by changing the operator to ===.
+I could have changed the words to match the operator, but I chose to do it this way because we've been encouraged to always use ===.
