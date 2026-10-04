@@ -63,3 +63,15 @@ Line 18
 No error was shown in the console, but strict equality was not used despite the JavaScript saying it was. This was fixed by changing the operator to ===.
 I could have changed the words to match the operator, but I chose to do it this way because we've been encouraged to always use ===.
 Worth noting that I could see the line the console.log was on, which could let me more easily figure out where the error was coming from.
+
+
+
+Reflection:
+Answer in 3–5 sentences:
+
+Which type coercion result surprised you most, and why?
+I can't really say any of it surprised me, after hearing JavaScript was built in such a short time. The most interesting one to me was the null vs undefined one though.
+This is mostly because I hadn't thought of just leaving a variable intentionally blank, and so the distinction stuck out. 
+
+What was the hardest bug to find in Part 3, and what clue in the error message led you to it?
+The hardest bug to find was the one console didn't see as a bug, and there wasn't really an error message. You could still pretty much immediately tell what was going on though. The message specified strict equality, but the code didn't reflect that. I don't expect this kind of bug will be so easy to see in the future, so I'll follow advice to just never use == in JS in order to avoid creating it. 
