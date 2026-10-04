@@ -1,7 +1,5 @@
-<!-- a place to write notes -->
+Console Experiments
 
-
-<!-- Console Experiments
  Type coercion:
 
 '5' + 3 - Produced '53'. This is because we started with a string, which made the default operation for + to be concatenation, which then coerced the 3 to become type string. 
@@ -21,7 +19,7 @@ null === undefined - Returned false. Reason: the two are defined (ha) differentl
 
 
 
-Types:
+Type exercises:
 
 typeof 'hello' - Returned 'string'.     Reason: 'hello' is a string
 typeof 42 - Returned 'number'.          Reason: 42 is a number
@@ -32,7 +30,10 @@ typeof [] - Returned 'object'           Reason: an array is an object type, so a
 typeof {} - Returned 'object'           Reason: curly braces indicate creation of an object when used in the context of a variable
 Note: typeof null returns 'object' — this is a well-known JavaScript quirk, not a feature.
 
-Strings:
+
+
+
+String exercises:
 
 '  hello world  '.trim() - returned 'hello world'   Reason: .trim() removed leading and trailing whitespace
 
@@ -44,7 +45,6 @@ Strings:
 
 'hello'.length - returned 5     Reason: hello is 5 characters long
 
-Record all results in lab -->
 
 
 Javascript debug exercises
@@ -62,3 +62,4 @@ I changed mesage to message, because that was previously declared, which fixed i
 Line 18 
 No error was shown in the console, but strict equality was not used despite the JavaScript saying it was. This was fixed by changing the operator to ===.
 I could have changed the words to match the operator, but I chose to do it this way because we've been encouraged to always use ===.
+Worth noting that I could see the line the console.log was on, which could let me more easily figure out where the error was coming from.
