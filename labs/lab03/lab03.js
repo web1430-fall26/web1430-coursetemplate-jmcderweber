@@ -22,7 +22,7 @@ console.log(greet(''));         // Expected: "Hello, stranger!"
 // Hint: number.toFixed(1) returns a string with one decimal place.
 
 function toFahrenheit(celsius) {
-  return ((celsius* 9/5) + 32).toFixed(1)
+  return ((celsius* 9/5) + 32).toFixed(1) + '°F';
 }
 
 console.log(toFahrenheit(0));     // Expected: "32.0°F"
@@ -43,27 +43,25 @@ function checkPassword(password) {
   switch (true) {
     case (len >= 12): 
       return 'strong';      
-      break;
 
-    case (8 < len && len <= 11): 
+    case (len >= 8 && len <= 11): 
       return 'medium';      
-      break;
 
     case len < 8: 
       return 'weak';      
-      break;
 
     default:
       return 'bad input';
-      break;
   }
-} // probably could have been done better
+}
 
-console.log(checkPassword('abc'));               // Expected: "weak"
-console.log(checkPassword('MyPass123'));         // Expected: "medium" 
-console.log(checkPassword('MyLongP@ssword!'));   // Expected: "strong"
-console.log(checkPassword(''));                  // Expected: "invalid"
-console.log(checkPassword(12345));               // Expected: "invalid"
+console.log(checkPassword('abc'));               // 3 chars, Expected: "weak"
+console.log(checkPassword('8charpas'));          // 8 chars, Expected: "medium"
+console.log(checkPassword('MyPass123'));         // 9 chars, Expected: "medium" 
+console.log(checkPassword('11charpasss'));       // 11 chars, Expected: "medium"
+console.log(checkPassword('MyLongP@ssword!'));   // 14 chars, Expected: "strong"
+console.log(checkPassword(''));                  // Empty string, Expected: "invalid"
+console.log(checkPassword(12345));               // Not a string, Expected: "invalid"
 
 // ─── Exercise 4: Initials ─────────────────────────────────────────────────
 // Accepts a full name string, returns the initials in uppercase with dots.
@@ -72,7 +70,7 @@ console.log(checkPassword(12345));               // Expected: "invalid"
 // Hint: .trim().split(' ') — (use and make sure to) filter out empty strings from double spaces.
 
 function getInitials(fullName) {
-  const nameParts = fullName.trim().split(' '); // Split the string into an array of parts by spaces, and remove whitespace from the beginning and end of the string./
+  const nameParts = fullName.trim().split(' '); // Split the string into an array of parts by spaces, and remove whitespace from the beginning and end of the string.
   // console.log(nameParts);
 
   const namePartsNoEmpty = nameParts.filter(part => part !== ''); // Filter out empty strings from an array by taking every array part and keeping if it is not empty
@@ -81,7 +79,7 @@ function getInitials(fullName) {
                                                                // It examines each part of the array it is given in order, and passes that into the function it is given.
                                                                // The arrow function takes that input as a parameter on the left side,
                                                                // and uses that parameter in the right side of the expression.
-                                                               // The right side of the arrow function returns if there is no return after it. 
+                                                               // The right side of the arrow function returns the result of that function if there is no return after it. 
                                                                // This one returns true if the part is not empty, false if it is empty. 
                                                                // The filter method deletes any parts of the array that return false, and keeps any parts that return true.
                                                                // filter() then returns a new array with only the non-empty parts.
