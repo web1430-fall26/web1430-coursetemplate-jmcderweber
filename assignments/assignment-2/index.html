@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="calculator.js" defer></script>
+
+
+<header>
+    <h1>Assignment 2 - Bill Splitter</h1>
+</header>
+
+<form>
+    <label for="Bill">Bill Amount:</label>
+    <input type="number" id="BillAmount" name="BillAmount" required> <br>
+
+    <label for="People">Number of People:</label>
+    <input type="number" id="PeopleNumber" name="PeopleNumber" required> <br>
+
+    <label for="Tip">Tip Percentage:</label>
+    <input type="number" id="TipPercentage" name="TipPercentage" required> <br>
+
+    <button type="button">Submit</button>
+</form>
+
+<section id="result" aria-live="polite"></section> <!-- aria-live="polite" means screen readers will announce updates politely -->
+
+</body>
+</html>
