@@ -15,19 +15,23 @@
 </header>
 
 <form>
-    <label for="Bill">Bill Amount:</label>
-    <input type="number" id="BillAmount" name="BillAmount" required> <br>
+    <h2>Enter Bill Details</h2>
+        <label for="BillAmount">Bill Amount:</label>
+        <input type="number" id="BillAmount" name="BillAmount" required> <br>
 
-    <label for="People">Number of People:</label>
-    <input type="number" id="PeopleNumber" name="PeopleNumber" required> <br>
+        <label for="PeopleNumber">Number of People:</label>
+        <input type="number" id="PeopleNumber" name="PeopleNumber" required> <br>
 
-    <label for="Tip">Tip Percentage:</label>
-    <input type="number" id="TipPercentage" name="TipPercentage" required> <br>
+        <label for="TipPercentage">Tip Percentage:</label>
+        <input type="number" id="TipPercentage" name="TipPercentage" required> <br>
 
-    <button type="button">Submit</button>
+        <button type="button">Submit</button>
 </form>
 
-<section id="result" aria-live="polite"></section> <!-- aria-live="polite" means screen readers will announce updates politely -->
+        <section>
+            <h2>Calculation Result</h2>
+            <div id="result" aria-live="polite"></div> <!-- aria-live="polite" means screen readers will announce updates politely -->
+        </section> 
 
 </body>
 </html>
