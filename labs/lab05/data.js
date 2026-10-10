@@ -13,3 +13,5 @@ const products = [
   { id: 9,  name: 'Laptop Sleeve',            category: 'Accessories', price: 19.99, inStock: true },
   { id: 10, name: 'HDMI Cable',               category: 'Accessories', price: 12.99, inStock: true },
 ];
+
+export { products };
