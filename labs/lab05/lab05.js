@@ -128,6 +128,10 @@ function renderProductCard(product){
     addToCartButton.disabled = !product.inStock;
     article.append(addToCartButton);
 
+    if (!product.inStock) {
+        article.classList.add('grayed');
+    }
+
     return article;
 
 }
