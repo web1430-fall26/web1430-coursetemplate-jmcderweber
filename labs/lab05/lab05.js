@@ -81,7 +81,88 @@ Formatted price in a <p> with class product-price
 A stock status indicator: a <span> reading "In Stock" or "Out of Stock", with class in-stock or out-of-stock accordingly
 A <button> reading "Add to Cart" that is disabled when inStock is false
 
+renderProductList(productList, container)
+Clears container and appends a renderProductCard(product) for each product in the list. If the list is empty, display a <p> reading "No products found."
+
+renderCategoryFilter(categories, container)
+Renders a <select> element into container with one <option> per category. The value of each option should equal the category string.
+
+
 Don't forget the commits
 */
 
+function renderProductCard(product){
+    const article = document.createElement('article');
+    article.classList.add('product-card');
 
+    const h2 = document.createElement('h2');
+    h2.textContent = product.name;
+    article.append(h2);
+
+    const categoryP = document.createElement('p');
+    categoryP.classList.add('product-category');
+    categoryP.textContent = product.category;
+    article.append(categoryP);
+
+    const priceP = document.createElement('p');
+    priceP.classList.add('product-price');
+    priceP.textContent = formatPrice(product.price);
+    article.append(priceP);
+
+    const stockStatSpan = document.createElement('span');
+    if (product.inStock === true){ // could remove the explicit comparison and just use if (product.inStock), but this is more readable
+        stockStatSpan.classList.add('in-stock')
+    } else if (product.inStock === false){
+        stockStatSpan.classList.add('out-of-stock')
+    } else {
+        stockStatSpan.classList.add('unknown-stock'); // just in case
+    }
+    article.append(stockStatSpan);
+
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Add to Cart';
+    addToCartButton.disabled = !product.inStock;
+    article.append(addToCartButton);
+
+    return article;
+
+}
+
+/*renderProductList(productList, container)
+Clears container and appends a renderProductCard(product)
+ for each product in the list. If the list is empty, display a <p> 
+ reading "No products found."
+*/
+
+function renderProductList(productList, container) {
+    container.textContent = ''; // clear. 
+
+    if (productList.length === 0){
+        const noProductsP = document.createElement('p');
+        noProductsP.textContent = 'No products found.';
+        container.append(noProductsP);
+        return;
+    }
+
+    for (const product of productList){
+        container.append(renderProductCard(product));
+    }
+}
+
+
+/* renderCategoryFilter(categories, container)
+Renders a <select> element into container with one <option> 
+per category. The value of each option should equal the category string. */
+
+function renderCategoryFilter(categories, container){
+    const select = document.createElement('select');
+    for (const category of categories){
+        const option = document.createElement('option');
+
+        option.textContent = category;
+        option.value = category;
+        select.append(option);
+        
+    }
+    container.append(select);
+}
