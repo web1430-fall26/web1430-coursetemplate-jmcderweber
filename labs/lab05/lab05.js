@@ -7,6 +7,12 @@ Updating the DOM in response to a filter control */
 
 import { products } from './data.js';
 
+// DOM references
+const filterBar = document.getElementById('filter-bar');
+//product-grid
+const productGrid = document.getElementById('product-grid');
+
+
 /*
 Logic functions
 filterByCategory(productList, category)
@@ -36,14 +42,12 @@ function filterByCategory(productList, category) {
     if (category === 'All') {
     return productList;
     }
-    return productList.filter( product => product.category === category )
+    return productList.filter( product => product.category === category ) // filter by category
 }
 
 
 function getCategories(productList) {
     const uniqueCategories = ['All', ...new Set(productList.map(p => p.category))];
-    console.log(uniqueCategories);
-
     return uniqueCategories;
 }
 // Test the getCategories function using the table in data.js
@@ -68,7 +72,7 @@ function sortByPrice(productList, direction) {
 }
 // console.log(sortByPrice(products, 'asc')[0]); // {id: 10, name: 'HDMI Cable', category: 'Accessories', price: 12.99, inStock: true}
 // console.log(sortByPrice(products, 'desc')[0]); // {id: 3, name: 'Mechanical Keyboard', category: 'Electronics', price: 89.99, inStock: false}
-
+// in order to properly use the sortByPrice function, I would need to pass the function as parameter to another function or use it directly with a product list.
 
 /* Rendering functions
 
@@ -156,6 +160,7 @@ per category. The value of each option should equal the category string. */
 
 function renderCategoryFilter(categories, container){
     const select = document.createElement('select');
+    
     for (const category of categories){
         const option = document.createElement('option');
 
@@ -166,3 +171,44 @@ function renderCategoryFilter(categories, container){
     }
     container.append(select);
 }
+
+
+
+// In labs/lab05/lab05.js, on DOMContentLoaded:
+
+// Call renderCategoryFilter(getCategories(products), filterBar) to populate the filter
+// Call renderProductList(products, productGrid) to show all products initially
+// Add a change listener to the category filter: when it changes, filter the 
+// products and re-render the list
+// Add a change listener to the sort select: when it changes, apply the sort 
+// and re-render (preserving any active category filter)
+document.addEventListener("DOMContentLoaded", function (){
+    renderCategoryFilter(getCategories(products), filterBar);
+
+
+    renderProductList(sortByPrice(products, 'asc'), productGrid);
+
+    const categorySelect = filterBar.querySelector('select'); 
+    const sortOrderSelect = document.getElementById('sort-order');
+
+    categorySelect.addEventListener('change', function () {
+        const selectedCategory = categorySelect.value;
+        const filteredProducts = products.filter(product => product.category === selectedCategory);
+        renderProductList(sortByPrice(filteredProducts, sortOrderSelect.value), productGrid); 
+        
+        if (selectedCategory === 'All') {
+            renderProductList(sortByPrice(products, sortOrderSelect.value), productGrid);
+        }
+    });
+
+    sortOrderSelect.addEventListener('change', function () {
+        const selectedCategory = categorySelect.value;
+        const filteredProducts = products.filter(product => product.category === selectedCategory);
+        renderProductList(sortByPrice(filteredProducts, sortOrderSelect.value), productGrid);
+
+        if (selectedCategory === 'All') {
+            renderProductList(sortByPrice(products, sortOrderSelect.value), productGrid);
+        }
+    });
+
+});

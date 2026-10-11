@@ -1,3 +1,10 @@
+<!-- In labs/lab05/index.html, create a page with:
+
+A <div id="filter-bar"> for the category filter select - done
+A <select id="sort-order"> with options "Price: Low to High" and "Price: High to Low" - done
+A <div id="product-grid"> for the product cards - done
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +18,7 @@
     <h1>Campus Store</h1>
 
     <div class="controls">
+      <label for="filter-bar">Filter by category</label>
       <div id="filter-bar" aria-label="Filter by category"></div>
       <div class="field-group">
         <label for="sort-order">Sort by price</label>
@@ -24,6 +32,6 @@
     <div id="product-grid" aria-live="polite"></div>
   </main>
 
-  <script src="lab05.js" defer></script>
+  <script type="module" src="lab05.js" defer></script>
 </body>
 </html>
