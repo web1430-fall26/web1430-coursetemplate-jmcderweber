@@ -10,12 +10,17 @@ I built a bill splitter for people who want to eat out together and split the bi
 
 Calculation and rendering logic are in different functions. This matters because it sets clear boundaries between the purposes of functions, and makes understanding and debugging easier. 
 
-I didn't expect the loose conversion between what I think was undefined and 0. I only realized this when I saw that I had to name the exact error in the message on Canvas, and found that Bill Amount without an input gave "Bill amount must be greater than 0". Strict greater or less than doesn't exist, so I had to restrict on whether it was strictly equal to zero or not to get the right effect. This... seems to be broken now. It used to work... I guess I should have committed more to see what broke it.
+I didn't expect the loose conversion between what I think was undefined and 0. I only realized this when I saw that I had to name the exact error in the message on Canvas, and found that Bill Amount without an input gave "Bill amount must be greater than 0". 
 
-If I were to make this tool better, I'd work on the "Above baseline" things mentioned on Canvas, listed below. 
+--Strict greater or less than doesn't exist, so I had to restrict on whether it was strictly equal to zero or not to get the right effect. This... seems to be broken now. It used to work... I guess I should have committed more to see what broke it.--
 
+The bug has been fixed with your suggestion. The validator now takes raw string input, tests if it is empty, and then converts it to a number. 
+
+It seems now that with the aria-describedby correctly describing the fields, the "cannot be empty" and "Number of people must be integer" error message outputs no longer work, but are replaced by pop-up textboxes instead. Interesting. I am not sure how the pop-ups work exactly, but they don't seem to replace every type of behavior, and some of the default messages I programmed in still go through.  
+
+Above baseline:
 1. Store the last calculation result in sessionStorage and restore it on page reload
 2. Add a "calculation history" list showing the last three results
 3. Support keyboard submission (pressing Enter in any input field triggers the calculation)
 
-As it is, I should work on catching up on my other assignments. I may resubmit later with these implemented. 
+I have added keyboard submission from the "Above baseline" suggestions. If I were to continue working on it, I would add the storage for the last calculation result, because it's much more likely a person using this would need to review how the last bill was split than seeing the result of the last three bill splits, but only if you keep the page open. 
