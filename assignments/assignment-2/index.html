@@ -14,7 +14,7 @@
     <h1>Assignment 2 - Bill Splitter</h1>
 </header>
 
-<form>
+<form onsubmit="handleCalculate(); return false;">
     <h2>Enter Bill Details</h2>
         <label for="BillAmount">Bill Amount:</label>
         <input type="number" id="BillAmount" name="BillAmount" required> <br>
@@ -25,7 +25,8 @@
         <label for="TipPercentage">Tip Percentage:</label>
         <input type="number" id="TipPercentage" name="TipPercentage" required> <br>
 
-        <button type="button">Submit</button>
+        <input type="submit" value="Submit">
+        <!-- <button type="button">Submit</button> -->
 </form>
 
         <section>

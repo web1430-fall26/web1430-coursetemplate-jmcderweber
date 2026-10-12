@@ -115,4 +115,7 @@ function handleCalculate() {
     renderResult(`Total: $${total.toFixed(2)}, Per Person: $${perPerson.toFixed(2)}`, validation);
 }
 
+// billInput.addEventListener('submit', handleCalculate);
+// peopleInput.addEventListener('submit', handleCalculate);
+// tipInput.addEventListener('submit', handleCalculate); // clunky
 submitButton.addEventListener('click', handleCalculate);
