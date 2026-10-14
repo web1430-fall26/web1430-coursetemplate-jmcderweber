@@ -14,19 +14,24 @@
     <h1>Assignment 2 - Bill Splitter</h1>
 </header>
 
-<form onsubmit="handleCalculate(); return false;">
+<form id="BillForm">
     <h2>Enter Bill Details</h2>
         <label for="BillAmount">Bill Amount:</label>
-        <input type="number" id="BillAmount" name="BillAmount" required> <br>
+        <input type="number" id="BillAmount" name="BillAmount" required step = '0.01' aria-describedby="bill-error"> <br> 
+        <!-- technically the aria-describedby gets set in the JavaScript, but this is here to declare the intention and as a fallback.  -->
+         <!-- the only reason to really do it in JavaScript is for future reference, if I wanted to add an element with JavaScript and then add the aria-describedby attribute to it -->
+          <!-- just putting aria-describedby in the html is apparently better practice, and also less complicated -->
+            <span id="bill-error"></span><br>
 
         <label for="PeopleNumber">Number of People:</label>
-        <input type="number" id="PeopleNumber" name="PeopleNumber" required> <br>
+        <input type="number" id="PeopleNumber" name="PeopleNumber" required step = '1' aria-describedby="people-error"> <br>
+            <span id="people-error"></span><br>
 
         <label for="TipPercentage">Tip Percentage:</label>
-        <input type="number" id="TipPercentage" name="TipPercentage" required> <br>
+        <input type="number" id="TipPercentage" name="TipPercentage" required step = 'any' aria-describedby="tip-error"> <br>
+            <span id="tip-error"></span><br> 
 
         <input type="submit" value="Submit">
-        <!-- <button type="button">Submit</button> -->
 </form>
 
         <section>
