@@ -21,3 +21,8 @@ The "Add to Cart" button looks disabled when the product is out of stock */
     opacity: 0.5;
     background-color: #7e7e7e; 
 }
+
+button:disabled{
+    background-color:red;
+
+}

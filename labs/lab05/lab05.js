@@ -116,10 +116,13 @@ function renderProductCard(product){
     const stockStatSpan = document.createElement('span');
     if (product.inStock === true){ // could remove the explicit comparison and just use if (product.inStock), but this is more readable
         stockStatSpan.classList.add('in-stock')
+        stockStatSpan.textContent = "In Stock  "
     } else if (product.inStock === false){
         stockStatSpan.classList.add('out-of-stock')
+        stockStatSpan.textContent = "Out of Stock  "
     } else {
         stockStatSpan.classList.add('unknown-stock'); // just in case
+        stockStatSpan.textContent = "Unknown Stock Status"
     }
     article.append(stockStatSpan);
 
