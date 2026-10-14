@@ -16,7 +16,9 @@ I didn't expect the loose conversion between what I think was undefined and 0. I
 
 The bug has been fixed with your suggestion. The validator now takes raw string input, tests if it is empty, and then converts it to a number. 
 
-It seems now that with the aria-describedby correctly describing the fields, the "cannot be empty" and "Number of people must be integer" error message outputs no longer work, but are replaced by pop-up textboxes instead. Interesting. I am not sure how the pop-ups work exactly, but they don't seem to replace every type of behavior, and some of the default messages I programmed in still go through.  
+<!-- It seems now that with the aria-describedby correctly describing the fields, the "cannot be empty" and "Number of people must be integer" error message outputs no longer work, but are replaced by pop-up textboxes instead. Interesting. I am not sure how the pop-ups work exactly, but they don't seem to replace every type of behavior, and some of the default messages I programmed in still go through.   -->
+
+aria-describedby had nothing to do with it, this is just default behavior when using a form with those attributes. 
 
 Above baseline:
 1. Store the last calculation result in sessionStorage and restore it on page reload
@@ -24,3 +26,9 @@ Above baseline:
 3. Support keyboard submission (pressing Enter in any input field triggers the calculation)
 
 I have added keyboard submission from the "Above baseline" suggestions. If I were to continue working on it, I would add the storage for the last calculation result, because it's much more likely a person using this would need to review how the last bill was split than seeing the result of the last three bill splits, but only if you keep the page open. 
+
+
+New Commit messages: 
+ebc2df68b0535b9384c49f0a2cb5fe89307b9466 - A2: bug fixes, bill and tip inputs now take money and fractional inputs, num people input takes whole numbers. JS setting and removing of aria-describedby has been replaced with a static descriptor in the HTML. Error spans have been added. handleCalculate is now called by listening for submit on the form rather than on button click or the form running handleCalculate from the HTML when it detects submitting.
+
+e680d6439970d143290e5e5b4e764cf9090cb1a9 - A2: re-added novalidate to form to allow custom blank entry error messages to work
