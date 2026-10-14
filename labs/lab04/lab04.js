@@ -81,7 +81,7 @@ function findTrail(level, maxDistance, maxHours) {
 // If trail found: show name, distance, hours, and difficulty.
 // Use createElement + textContent — no innerHTML.
 function renderRecommendation(trail) {
-  recommendationDiv.innerHTML = ''; // clear previous result
+  recommendationDiv.textContent = ''; // clear previous result
   if (trail === null) {
     const p = document.createElement('p');
     p.textContent = 'No trail matches your criteria. Try adjusting your distance or time.';
@@ -94,8 +94,8 @@ function renderRecommendation(trail) {
 }
 
 // Button handler
-findBtn.addEventListener('click', () => { 
-  // TODO: read values → validate → findTrail → renderRecommendation
+function handleFind() {
+
   const level = experienceSelect.value;
   const maxDistance = Number(maxDistanceInput.value);
   const maxHours = Number(maxHoursInput.value);
@@ -109,9 +109,9 @@ findBtn.addEventListener('click', () => {
 
   const trail = findTrail(level, maxDistance, maxHours);
   renderRecommendation(trail);
+}
 
-  
-}); 
+findBtn.addEventListener('click', handleFind); 
 
 // ─── Part 4: Distance converter functions ────────────────────────────────
 
@@ -127,7 +127,7 @@ function milesToKm(miles) {
 // Builds a <table> with columns Miles | Kilometers using createElement.
 // Renders into tableOutputDiv.
 function renderTable(increment, rows) {
-  tableOutputDiv.innerHTML = ''; // clear previous result
+  tableOutputDiv.textContent = ''; // clear previous result, worked even though has children
   if (rows < 1 || rows > 20) {
     tableOutputDiv.textContent = 'Number of rows must be between 1 and 20.';
     return;
@@ -137,51 +137,62 @@ function renderTable(increment, rows) {
     return;
   }
 
-//table = <table> element
-// thead = table head
-// tbody = table body
-// th = table header cell
-// tr = table row
-// td = table data cell
+  //table = <table> element
+  // thead = table head
+  // tbody = table body
+  // th = table header cell
+  // tr = table row
+  // td = table data cell
 
 
- // helper function to create a table row with given values and cell type 
- // (and to make it less confusing)
-function createRow(values, cellType) { // values is an array of cell values
-  const row = document.createElement('tr'); // create table row element
+  // helper function to create a table row with given values and cell type 
+  // (and to make it less confusing)
+  function createRow(values, cellType) { // values is an array of cell values
+    const row = document.createElement('tr'); // create table row element
 
-  for (const value of values) { // loop over array of cell values
-    const cell = document.createElement(cellType); // create table cell element based on passed cellType
-    cell.textContent = value;
-    row.append(cell); // loop finishes row
+    for (const value of values) { // loop over array of cell values
+      const cell = document.createElement(cellType); // create table cell element based on passed cellType
+      cell.textContent = value;
+      row.append(cell); // loop finishes row
+    }
+    return row; // returns finished row
   }
-  return row; // returns finished row
+
+  // create table structure
+    const table = document.createElement('table');// create table element 
+
+
+    const thead = document.createElement('thead'); //tableHead
+    const headerRow = createRow(['Miles', 'Kilometers'], 'th'); // table header row
+    thead.append(headerRow);
+    table.append(thead);
+
+  // body rows
+    const tbody = document.createElement('tbody');
+    for (let i = 0; i < rows; i++) {
+      const miles = increment * (i + 1);
+      const km = milesToKm(miles); 
+      const row = createRow([miles, km], 'td'); // tableRow
+      tbody.append(row);
+    }
+    table.append(tbody);
+
+    tableOutputDiv.append(table);
 }
 
-// create table structure
-  const table = document.createElement('table');// create table element 
+function handleGenerate(){
 
-
-  const thead = document.createElement('thead'); //tableHead
-  const headerRow = createRow(['Miles', 'Kilometers'], 'th'); // table header row
-  thead.append(headerRow);
-  table.append(thead);
-
-// body rows
-  const tbody = document.createElement('tbody');
-  for (let i = 0; i < rows; i++) {
-    const miles = increment * i;
-    const km = milesToKm(miles); 
-    const row = createRow([miles, km], 'td'); // tableRow
-    tbody.append(row);
-  }
-  table.append(tbody);
-
-  tableOutputDiv.append(table);
-}
-
-generateBtn.addEventListener('click', () => {
   const increment = parseFloat(incrementInput.value);
   const rows      = parseInt(rowCountInput.value, 10);
+
+  if (Number.isNaN(increment) || Number.isNaN(rows)) {
+    tableOutputDiv.textContent = 'Please enter valid numbers for increment and rows.';
+    return;
+  }
+
   renderTable(increment, rows);
-});
+}
+
+
+
+generateBtn.addEventListener('click', handleGenerate);
