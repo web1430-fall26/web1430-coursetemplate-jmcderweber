@@ -87,9 +87,27 @@ Navigation
 
 
  ## Rough sketch: A hand-drawn or digital wireframe showing how the style guide page will be organized.
-Accessibility plan: For each interactive pattern you plan to implement, answer two questions: (a) How will a keyboard-only user operate it? (b) What ARIA attributes will communicate its state to a screen reader? This does not need to be code — a sentence or two per pattern is sufficient.
+![Rough sketch](20261017_143559.jpg) 
+
+
+## Accessibility plan: For each interactive pattern you plan to implement, answer two questions: 
+
+(a) How will a keyboard-only user operate it? 
+(b) What ARIA attributes will communicate its state to a screen reader? This does not need to be code — a sentence or two per pattern is sufficient.
 Proposal does not need to be code — it is a planning document.
-projects\20261017_143559.jpg projects\20261017_143559.jpg
+
+There will be a navigation that is collapsed into a hamburger menu. A keyboard user will be able to tab to it and press enter to open it, and then tab down to each part of the navigation, which when interacted with using the enter key will close the nav and put them at the correct section. 
+
+The aria-expanded attribute will communicate the navigation menu's state to a screen reader.
+
+
+
+
+
+
+
+
+
 
 
 
