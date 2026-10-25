@@ -1,0 +1,37 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Effect Calculator</title>    
+    <script src="calculateEffects.js" defer></script>
+</head>
+
+<body>
+    <h1>Upgrade Effect Calculator</h1>
+    <form id="upgradeForm">
+        <label for="currentNumber">Current Number:</label>
+        <input type="number" id="currentNumber" name="currentNumber" step="any" required><br><br><!-- input for current number -->
+
+        <label for="upgradeMultiplier">Upgrade Multiplier:</label>
+        <input type="number" id="upgradeMultiplier" name="upgradeMultiplier" step="any" required><br><br> <!-- input for upgrade multiplier -->
+
+        <label for="currentUpgrades">Current Number of Upgrades:</label>
+        <input type="number" id="currentUpgrades" name="currentUpgrades" step="1" required><br><br>   <!-- input for current number of upgrades -->
+
+        <label for="plannedUpgrades">Planned Number of Upgrades:</label>
+        <input type="number" id="plannedUpgrades" name="plannedUpgrades" step="1" required><br><br>   <!-- input for how many upgrades you plan to buy -->
+
+        <button type="click">Calculate</button>
+    </form>
+
+    <div id="output">
+         <!-- output number without upgrades -->
+         <!-- output number with planned number of upgrades -->
+    </div>
+
+    <div id="doNotUse">
+        testing
+    </div>
+</body>
+
+
+
