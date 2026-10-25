@@ -40,38 +40,44 @@
 // console.log(testObj);
 
 
-  // Step 1: Define your data
-  const data = [
-    { name: "Fahim", age: 25, job: "Software Engineer" },
-    { name: "Sara", age: 29, job: "Designer" },
-    { name: "David", age: 31, job: "Manager" }
-  ];
+  // // Step 1: Define your data
+  // const data = [
+  //   { name: "Fahim", age: 25, job: "Software Engineer" },
+  //   { name: "Sara", age: 29, job: "Designer" },
+  //   { name: "David", age: 31, job: "Manager" }
+  // ];
 
-  // Step 2: Create a table element
-  const table = document.createElement("table");
+  // // Step 2: Create a table element
+  // const table = document.createElement("table");
 
 
-  // Step 3: Add headers
-  const headers = ["Name", "Age", "Job"];
-  const headerRow = document.createElement("tr");
+  // // Step 3: Add headers
+  // const headers = ["Name", "Age", "Job"];
+  // const headerRow = document.createElement("tr");
 
-  headers.forEach(text => {
-    const th = document.createElement("th");
-    th.textContent = text;
-    headerRow.appendChild(th);
-  });
-  table.appendChild(headerRow);
+  // headers.forEach(text => {
+  //   const th = document.createElement("th");
+  //   th.textContent = text;
+  //   headerRow.appendChild(th);
+  // });
+  // table.appendChild(headerRow);
 
-  // Step 4: Add data rows
-  data.forEach(item => {
-    const row = document.createElement("tr");
-    Object.values(item).forEach(value => {
-      const cell = document.createElement("td");
-      cell.textContent = value;
-      row.appendChild(cell);
-    });
-    table.appendChild(row);
-  });
+  // // Step 4: Add data rows
+  // data.forEach(item => {
+  //   const row = document.createElement("tr");
+  //   Object.values(item).forEach(value => {
+  //     const cell = document.createElement("td");
+  //     cell.textContent = value;
+  //     row.appendChild(cell);
+  //   });
+  //   table.appendChild(row);
+  // });
 
-  // Step 5: Insert the table into the DOM
-  document.getElementById("table-container").appendChild(table);
+  // // Step 5: Insert the table into the DOM
+  // document.getElementById("table-container").appendChild(table);
+
+
+
+
+
+  

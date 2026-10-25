@@ -1,0 +1,53 @@
+@import url('https://googleapis.com');
+
+:root{
+    /* --background-color: #87bfff; 
+    --brand-color: #003de4;  
+    --text-color: rgb(1, 68, 80);
+    --accent-color: rgb(221, 0, 0); */
+
+    --brand-color: #003de4;  
+    --brand-text-color: #FFFFFF;
+    --text-color: #0000; 
+    --background-color: #87bfff; 
+    --accent-color: #dd0000;
+}
+
+.museomoderno-regular {
+  font-family: "MuseoModerno", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  font-size: 100%; /* Defaults to 16px */
+}
+
+.text-small {
+  font-size: 0.75rem;
+}
+
+body, .text-body {
+  font-size: 1rem;
+}
+
+.text-large {
+  font-size: 1.125rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
