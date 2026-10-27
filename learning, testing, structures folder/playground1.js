@@ -81,3 +81,9 @@
 
 
   
+// const doNotUse = document.getElementById("doNotUse");
+// function badFunction(userInput) {
+//     doNotUse.innerHTML = userInput; // This is a bad practice and can lead to XSS vulnerabilities, but is for testing purposes only. In a real application, you should sanitize user input before inserting it into the DOM to prevent XSS attacks.
+
+//     // `You entered: ${userInput}`
+// } user can call the function from the console and pass in any string, including potentially malicious scripts, which will be executed in the context of the page. This is a security risk and should be avoided in production code.

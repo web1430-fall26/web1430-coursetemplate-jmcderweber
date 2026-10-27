@@ -1,5 +1,6 @@
 const output = document.getElementById("output");
 const form = document.getElementById("upgradeForm");
+const button = document.getElementById("calcButton");
 
 
 function calculateEffects(currentNumber, upgradeMultiplier, currentUpgrades, plannedUpgrades) {
@@ -29,14 +30,8 @@ function displayResults(event) {
                           Output with planned upgrades: ${outputWithPlannedUpgrades.toFixed(5)}`;
 }
 
-form.addEventListener('click', displayResults); 
+button.addEventListener('click', displayResults); 
 
 
 
 
-const doNotUse = document.getElementById("doNotUse");
-function badFunction(userInput) {
-    doNotUse.innerHTML = userInput; // This is a bad practice and can lead to XSS vulnerabilities, but is for testing purposes only. In a real application, you should sanitize user input before inserting it into the DOM to prevent XSS attacks.
-
-    // `You entered: ${userInput}`
-}
