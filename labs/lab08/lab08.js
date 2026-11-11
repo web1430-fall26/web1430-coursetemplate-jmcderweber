@@ -79,3 +79,7 @@ form.addEventListener('submit', async (event) => {
     console.error(error);
   }
 });
+
+
+// code shown on Oct 28 recording at 10:16 am, js 10:23:45
+//html 10 22:30, is provided on canvas
