@@ -32,6 +32,9 @@ commas mean search for everything in the list
 
 
 +, >, and ~ are after selectors
+
+elem1 & elem2
+
 + selects all elem2 immediately after elem1 
 
 '>' selects all that are direct children (differs by can have stuff between elem1 and elem2 and how many are selected)
