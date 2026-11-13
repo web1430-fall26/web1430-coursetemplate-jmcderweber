@@ -7,10 +7,6 @@ const tabList = document.querySelectorAll(".tab-list")[0]
 //
 const panelList = document.querySelectorAll("div[role='tabpanel']")
 
-
-
-
-
 /* Write a function initFaq(faqContainer) that:
 
 Adds a single click listener to faqContainer (event delegation)
@@ -52,6 +48,33 @@ function initFaq(faqContainer) {
 }
 initFaq(faqContainer) // this actually adds the event listener, won't function without
 
+
+/* 
+Write a function initTabs(tabListContainer) that handles both mouse and keyboard.
+
+Click behaviour
+
+Add a click listener to tabListContainer
+When a [role="tab"] button is clicked:
+Set aria-selected="false" on all tab buttons
+Hide all tab panels (set hidden = true)
+Set aria-selected="true" on the clicked tab
+Show the panel whose id matches event.target.getAttribute('aria-controls') (remove hidden)
+
+Keyboard behaviour — roving tabindex
+
+Because these buttons carry role="tab" inside a role="tablist", they are one composite widget, not three separate buttons. Assistive technology users expect one Tab press to enter the tablist, arrow keys to move between tabs, and the next Tab press to leave. See the roving-tabindex section of the Week 06 lecture notes for the reasoning and the full pattern.
+
+Keep exactly one tab in the tab order: the selected tab gets tabIndex = 0, every other tab gets tabIndex = -1. Update this every time the selection changes — including on click.
+Add a keydown listener to tabListContainer. On ArrowRight / ArrowLeft, move the selection one tab forward or backward and wrap around at the ends. On Home / End, jump to the first or last tab.
+Call event.preventDefault() when you handle an arrow key, so the page does not scroll.
+Call .focus() on the newly selected tab, so focus and selection stay together.
+Factor the shared work into one selectTab(index) helper and call it from both the click and the keydown paths — the two should not have separate copies of the logic. */
+function initTabs(){ // Start here, supposed to be initTabs(tabListContainer)
+  const tabs = Array.from(tabList.querySelectorAll('[role="tab"]')); 
+  setActiveTab(tabs, panelList, 0);
+}
+initTabs()
 
 function setActiveTab(tabs, panels, newIndex) { // takes a tab array?, the content meant to be in each tab, and the index of the one you want open
   tabs.forEach((tab, i) => { // forEach executes a provided function once for each element of an array
