@@ -70,45 +70,47 @@ Add a keydown listener to tabListContainer. On ArrowRight / ArrowLeft, move the 
 Call event.preventDefault() when you handle an arrow key, so the page does not scroll.
 Call .focus() on the newly selected tab, so focus and selection stay together.
 Factor the shared work into one selectTab(index) helper and call it from both the click and the keydown paths — the two should not have separate copies of the logic. */
-function initTabs(){ // Start here, supposed to be initTabs(tabListContainer)
-  const tabs = Array.from(tabList.querySelectorAll('[role="tab"]')); 
-  setActiveTab(tabs, panelList, 0);
-}
-initTabs()
+function initTabs(tabListContainer) {
+  const tabs = Array.from(tabListContainer.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-function setActiveTab(tabs, panels, newIndex) { // takes a tab array?, the content meant to be in each tab, and the index of the one you want open
-  tabs.forEach((tab, i) => { // forEach executes a provided function once for each element of an array
-                              // parameters in this case are (currentTab, currentTabIndex)
-    const selected = i === newIndex; // boolean, true if the desired index === the current index
-    tab.setAttribute("aria-selected", String(selected)); // sets the aria-selected value to true if the desired index === the current index, false if not
-    tab.tabIndex = selected ? 0 : -1;      // roving tabindex, // tabindex="-1" means "not in the tab order, but still focusable by script".
-                                        // essentially, if selected is true, set this tab's index to 0, which allows it to be focused by the Tab key
-                                        // if selected is false, set the tab's index to -1, which removes that tab from tab order
-                                        // this sets the states that allow for users to use the tab key to change the focus through the page,
-                                        // and leave one tab selected while being able to move between tabs with arrow keys and move on with the tab key
-    panels[i].hidden = !selected; // hides each panel when the tab is not selected
-  });
-  tabs[newIndex].focus();                   // move focus with the selection
-}
+  function selectTab(index, moveFocus = true) {
+    tabs.forEach((tab, tabIndex) => {
+      const selected = tabIndex === index;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
 
-tabList.addEventListener("keydown", (event) => { // the logic for selecting tabs with arrow keys, runs on keydown with focus on any element within tabList
-  const tabs = Array.from(tabList.querySelectorAll('[role="tab"]')); // .from creates a shallow copy of any object with a length property
-                                                                     // in this case, the querySelectorAll returns a NodeList
-                                                                     //  of all things in the tabList with role = tab
-                                                                     // and Array.from() creates an array from the NodeList
-                                                                     // this is done because different things can be done with arrays
-  const current = tabs.indexOf(document.activeElement); // gets index (as in, 0, 1, 2, position in array of the active element (which is the one with focus)), or returns -1 if none found
-  if (current === -1) return; // does nothing if the active element isn't found inside tabs
+    panels.forEach((panel) => {
+      panel.hidden = panel.id !== tabs[index].getAttribute('aria-controls');
+    });
 
-  let next = null;
-  if (event.key === "ArrowRight") next = (current + 1) % tabs.length;
-  if (event.key === "ArrowLeft")  next = (current - 1 + tabs.length) % tabs.length;
-  if (event.key === "Home")       next = 0;
-  if (event.key === "End")        next = tabs.length - 1;
-
-  if (next !== null) { // because it would be null, skip if none of the key events were triggered 
-                       // notably, the event listener/function still triggers, it just doesn't do anything
-    event.preventDefault();   // stop the arrow key from scrolling the page
-    setActiveTab(tabs, panelList, next);
+    if (moveFocus) tabs[index].focus();
   }
-});
+
+  tabListContainer.addEventListener('click', (event) => {
+    const clickedTab = event.target.closest('[role="tab"]');
+    const index = tabs.indexOf(clickedTab);
+    if (index !== -1) selectTab(index);
+  });
+
+  tabListContainer.addEventListener('keydown', (event) => {
+    const current = tabs.indexOf(document.activeElement);
+    if (current === -1) return;
+
+    let next = null;
+    if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+
+    if (next !== null) {
+      event.preventDefault();
+      selectTab(next);
+    }
+  });
+
+  selectTab(0, false);
+}
+
+initTabs(tabList);
