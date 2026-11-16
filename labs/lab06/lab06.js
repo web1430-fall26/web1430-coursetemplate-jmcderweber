@@ -1,12 +1,3 @@
-//
-const faqContainer = document.querySelector(".faq")
-
-// class="tab-list"
-const tabList = document.querySelectorAll(".tab-list")[0]
-
-//
-const panelList = document.querySelectorAll("div[role='tabpanel']")
-
 /* Write a function initFaq(faqContainer) that:
 
 Adds a single click listener to faqContainer (event delegation)
@@ -46,7 +37,7 @@ function initFaq(faqContainer) {
     }
   });
 }
-initFaq(faqContainer) // this actually adds the event listener, won't function without
+
 
 
 /* 
@@ -113,4 +104,5 @@ function initTabs(tabListContainer) {
   selectTab(0, false);
 }
 
-initTabs(tabList);
+initFaq(document.querySelector(".faq")) // this actually adds the event listener, won't function without
+initTabs(document.querySelector(".tab-list"));
