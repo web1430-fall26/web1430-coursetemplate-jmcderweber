@@ -20,8 +20,8 @@ function initFaq(faqContainer) {
       const clickedQuestion = event.target;
       const answerEl = clickedQuestion.nextElementSibling;
 
-      clickedQuestion.setAttribute('aria-expanded', 'true');
       answerEl.toggleAttribute('hidden');
+      clickedQuestion.setAttribute('aria-expanded', String(!answerEl.hidden));
 
       // - Finds all other open questions and closes them (removes the hidden attribute trick: toggle hidden on the answer div, set aria-expanded to the correct string)
         const allQuestions = faqContainer.querySelectorAll('.faq-question');
